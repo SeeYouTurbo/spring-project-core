@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>Greenwich.SR5</version>
+        <relativePath/>
+        <!-- lookup parent from repository -->
+    </parent>
+
+    <groupId>spring-project</groupId>
+    <artifactId>spring-project</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modelVersion>4.0.0</modelVersion>
+
+    <modules>
+<!--        <module>spring-project-common</module>-->
+<!--        <module>spring-project-generate-mybatis</module>-->
+<!--        <module>spring-project-archetype</module>-->
+<!--        <module>spring-project-parent</module>-->
+<!--        <module>spring-project-mybatis-plus</module>-->
+<!--        <module>spring-project-core</module>-->
+    </modules>
+
+
+    <distributionManagement>
+
+        <!--<repository>
+                <id>nexus-releases</id>
+                <name>project release repository</name>
+                <url>http://8.129.168.252:8081/repository/maven-releases</url>
+            </repository>
+            <snapshotRepository>
+                <id>nexus-snapshot</id>
+                <name>project snapshot repository</name>
+                <url>http://8.129.168.252:8081/repository/maven-snapshots</url>
+            </snapshotRepository>-->
+
+    </distributionManagement>
+
+</project>
