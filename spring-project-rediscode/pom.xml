@@ -6,15 +6,15 @@
         <artifactId>spring-project-parent</artifactId>
         <groupId>spring-project</groupId>
         <version>1.0.0-SNAPSHOT</version>
-        <relativePath/>
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>spring-project-rediscode</artifactId>
     <packaging>pom</packaging>
-    <artifactId>spring-project-core</artifactId>
     <modules>
-        <module>spring-project-common</module>
-        <module>spring-project-generate-mybatis</module>
-        <module>spring-project-mybatis-plus</module>
+        <module>spring-project-redislimit</module>
     </modules>
+
 
 </project>
