@@ -9,6 +9,7 @@ import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
+
 /**
  * 自定义类生成Config
  *
@@ -41,7 +42,9 @@ public class CustomFileOutConfig extends FileOutConfig {
 
     private boolean isDeleteFilePrefixModule;
 
-    public CustomFileOutConfig(String templatePath, String basePackage, String packageName, String fileName, String outputDir, String prefixName, boolean isDeleteFilePrefixModule, InjectionConfig cfg, PackageConfig pc) {
+    private boolean isUnifyRootPathPrefixModule;
+
+    public CustomFileOutConfig(String templatePath, String basePackage, String packageName, String fileName, String outputDir, String prefixName, boolean isDeleteFilePrefixModule, boolean isUnifyRootPathPrefixModule, InjectionConfig cfg, PackageConfig pc) {
         super(templatePath);
         this.basePackage = basePackage;
         this.outputDir = outputDir;
@@ -51,6 +54,7 @@ public class CustomFileOutConfig extends FileOutConfig {
         this.pc = pc;
         this.prefixName = prefixName;
         this.isDeleteFilePrefixModule = isDeleteFilePrefixModule;
+        this.isUnifyRootPathPrefixModule = isUnifyRootPathPrefixModule;
     }
 
     public void init(TableInfo tableInfo) {
@@ -78,6 +82,9 @@ public class CustomFileOutConfig extends FileOutConfig {
         if (flag.booleanValue())
             this.name = this.name.replaceFirst(StringUtils.capitalize(moduleName), "");
         String packagePath = this.basePackage + (StringUtils.isNotEmpty(moduleName) ? ("." + moduleName) : "") + (StringUtils.isNoneEmpty(new CharSequence[] { this.packageName }) ? ("." + this.packageName) : "");
+        if(this.isUnifyRootPathPrefixModule){
+            packagePath = this.basePackage + (StringUtils.isNoneEmpty(new CharSequence[] { this.packageName }) ? ("." + this.packageName) : "") + (StringUtils.isNotEmpty(moduleName) ? ("." + moduleName) : "");
+        }
         this.cfg.getMap().put(this.prefixName + "Package", packagePath);
         this.cfg.getMap().put(this.prefixName + "Name", this.name.substring(0, (this.name.indexOf(".") > -1) ? this.name.indexOf(".") : this.name.length()));
         if (StringUtils.isNotEmpty(this.superClass)) {
